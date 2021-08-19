@@ -6,54 +6,18 @@
   <body onload="Populate('myForm');">
 
     <div id="container">
-      <h1>Get lucky</h1>
+      <h1>Get lucky </h1>
+	  <button type="button" id="calculate" onclick="Calculate('myForm');">Spin</button>
       <div id="calculator">
 	  <form method="GET" action="page17.php" name="myForm" onsubmit="return false;">
-	    <fieldset name="row">
-			<input type="checkbox" name="myCheckbox" value="1" id="myCheckbox1" >
-			<input id="impl" type="text" name="impl" disabled='true' /> 
-			<input id="amt" type="text" name="min"  placeholder="min" /> 
-			<input id="amt" type="text" name="max" placeholder="max" />
-			<input id="weight" type="text" name="weight" placeholder="max" />
-		</fieldset>
-		<br>	    
-		<fieldset name="row">
-			<input type="checkbox" name="myCheckbox" value="1" id="myCheckbox1">
-			<input id="impl" type="text" name="impl" disabled='true' /> 
-			<input id="amt" type="text" name="min"  placeholder="min" /> 
-			<input id="amt" type="text" name="max" placeholder="max" />
-				<input id="weight" type="text" name="weight" placeholder="max" />
-		</fieldset>
-		<br>		
-		<fieldset name="row">
-			<input type="checkbox" name="myCheckbox" value="1" id="myCheckbox1">
-			<input id="impl" type="text" name="impl" disabled='true' /> 
-			<input id="amt" type="text" name="min"  placeholder="min" /> 
-			<input id="amt" type="text" name="max" placeholder="max" />
-				<input id="weight" type="text" name="weight" placeholder="max" />
-		</fieldset>
-		<br>
-		<fieldset name="row">
-		    <input type="checkbox" name="myCheckbox" value="2" id="myCheckbox2">
-			<input id="impl" type="text" name="impl"  disabled='true' /> 
-			<input id="amt" name="min" type="text" placeholder="min" /> 
-			<input id="amt" name="max" type="text" placeholder="max" />
-				<input id="weight" type="text" name="weight" placeholder="max" />
-		</fieldset>
-		<br>
-		<fieldset name="row">
-			<input type="checkbox" name="myCheckbox" value="3" id="myCheckbox3">
-			<input id="impl" type="text" name="impl" disabled='true' /> 
-			<input id="amt" type="text" name="min" placeholder="min" /> 
-			<input id="amt" type="text" name="max" placeholder="max" />
-				<input id="weight" type="text" name="weight" placeholder="max" />
-		</fieldset >
-		<br><input type="button" onclick="SetAllCheckBoxes('myForm', 'myCheckbox', true);" value="All  ">
+	  	<input type="button" onclick="SetAllCheckBoxes('myForm', 'myCheckbox', true);" value="All  ">
 		<input type="button" onclick="SetAllCheckBoxes('myForm', 'myCheckbox', false);" value="None  ">
 		<input type="button" onclick="SetAllQuietCheckBoxes('myForm', 'quiet', true);" value="All Quiet  ">
 		<input type="button" onclick="SetAllQuietCheckBoxes('myForm', 'quiet', false);" value="No Quiet  ">
+		<br>
+		<p>
 	</form>
-        <button type="button" id="calculate" onclick="Calculate('myForm');">Spin</button>
+   
       </div>
     </div>
     <!--container end-->
