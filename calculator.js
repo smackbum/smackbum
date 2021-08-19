@@ -1,16 +1,17 @@
 function Populate(FormName)
 {
     const array = [
-		{checked: true, impl:'big paddle', min: 5, max: 40},
-		{checked: true, impl:'cane', min: 5, max: 10},
-		{checked: true, impl:'narrow paddle', min: 15, max: 40},
-		{checked: true, impl:'strap', min: 20, max: 50},
-		{checked: false, impl:'hand', min: 15, max: 35},
+		{checked: true, impl:'big paddle', min: 5, max: 40, quiet: false},
+		{checked: true, impl:'cane', min: 5, max: 10, quiet: true },
+		{checked: true, impl:'narrow paddle', min: 15, max: 40, quiet: false},
+		{checked: true, impl:'strap', min: 20, max: 50, quiet: false},
+		{checked: false, impl:'hand', min: 15, max: 35, quiet: true},
 	]
 	
 	var fieldSets = document.forms[FormName].elements["row"];
 	fieldSets.forEach((row, index) => 
 	{
+		row.quiet = array[index].quiet;
 		row.children[0].checked = array[index].checked;
 		row.children[1].value= array[index].impl;
 		row.children[2].value= array[index].min;
@@ -32,6 +33,24 @@ function SetAllCheckBoxes(FormName, FieldName, CheckValue)
 		// set the check value for all check boxes
 		for(var i = 0; i < countCheckBoxes; i++)
 			objCheckBoxes[i].checked = CheckValue;
+}
+
+function SetAllQuietCheckBoxes(FormName, CheckValue)
+{
+	if(!document.forms[FormName])
+		return;
+	var objCheckBoxes = document.forms[FormName].elements['row'];
+	if(!objCheckBoxes)
+		return;
+	var countCheckBoxes = objCheckBoxes.length;
+	if(!countCheckBoxes)
+		objCheckBoxes.checked = CheckValue;
+	else
+	{
+		objCheckBoxes.forEach((obj, index) => {
+		obj.children[0].checked = CheckValue === obj.quiet;
+		})
+	}
 }
 
 function getRandomInt(min, max) {
