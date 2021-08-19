@@ -1,3 +1,41 @@
+function SetAllCheckBoxes(FormName, FieldName, CheckValue)
+{
+	if(!document.forms[FormName])
+		return;
+	var objCheckBoxes = document.forms[FormName].elements[FieldName];
+	var objCheckBoxes1 = document.forms[FormName].elements["impl"];
+	if(!objCheckBoxes)
+		return;
+	var countCheckBoxes = objCheckBoxes.length;
+	if(!countCheckBoxes)
+		objCheckBoxes.checked = CheckValue;
+	else
+		// set the check value for all check boxes
+		for(var i = 0; i < countCheckBoxes; i++)
+			objCheckBoxes[i].checked = CheckValue;
+}
+
+function Calculate(FormName)
+{
+	if(!document.forms[FormName])
+		return;
+	var fieldSets = document.forms[FormName].elements["row"];
+	if(!fieldSets)
+		return;
+	fieldSets.forEach(row => 
+	{
+		const checked = row.children[0].checked;
+		const impl = row.children[1].value;
+		const min = row.children[2].value;
+		const max = row.children[3].value;
+		
+		console.log(checked);
+	})
+	var countCheckBoxes = objCheckBoxes.length;
+		
+	alert("You have won a toy");
+}
+
 //Calculate Tip
 
 /*  function name: calculateTip
