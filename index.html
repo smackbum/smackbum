@@ -10,7 +10,7 @@
       <div id="calculator">
 	  <form method="GET" action="page17.php" name="myForm" onsubmit="return false;">
 	    <fieldset name="row">
-			<input type="checkbox" name="myCheckbox" value="1" id="myCheckbox1">
+			<input type="checkbox" name="myCheckbox" value="1" id="myCheckbox1" >
 			<input id="impl" type="text" name="impl" disabled='true' /> 
 			<input id="amt" type="text" name="min"  placeholder="min" /> 
 			<input id="amt" type="text" name="max" placeholder="max" />
@@ -45,7 +45,8 @@
 		</fieldset >
 		<br><input type="button" onclick="SetAllCheckBoxes('myForm', 'myCheckbox', true);" value="All  ">
 		<input type="button" onclick="SetAllCheckBoxes('myForm', 'myCheckbox', false);" value="None  ">
-
+		<input type="button" onclick="SetAllQuietCheckBoxes('myForm', true);" value="All Quiet  ">
+		<input type="button" onclick="SetAllQuietCheckBoxes('myForm', false);" value="No Quiet  ">
 	</form>
         <button type="button" id="calculate" onclick="Calculate('myForm');">Spin</button>
       </div>
