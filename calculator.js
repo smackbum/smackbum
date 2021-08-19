@@ -1,11 +1,11 @@
 function Populate(FormName)
 {
     const array = [
-		{checked: true, impl:'big paddle', min: 5, max: 40, quiet: false},
-		{checked: true, impl:'cane', min: 5, max: 10, quiet: true },
-		{checked: true, impl:'narrow paddle', min: 15, max: 40, quiet: false},
-		{checked: true, impl:'strap', min: 20, max: 50, quiet: false},
-		{checked: false, impl:'hand', min: 15, max: 35, quiet: true},
+		{checked: true, impl:'big paddle', min: 5, max: 40, weight: 1, quiet: false},
+		{checked: true, impl:'cane', min: 5, max: 10, weight: 1, quiet: true },
+		{checked: true, impl:'narrow paddle', min: 15, weight: 1, max: 40, quiet: false},
+		{checked: true, impl:'strap', min: 20, max: 50, weight: 1, quiet: false},
+		{checked: false, impl:'hand', min: 15, max: 35, weight: 1, quiet: true},
 	]
 	
 	var fieldSets = document.forms[FormName].elements["row"];
@@ -16,6 +16,7 @@ function Populate(FormName)
 		row.children[1].value= array[index].impl;
 		row.children[2].value= array[index].min;
 		row.children[3].value= array[index].max;
+		row.children[4].value= array[index].weight;
 	});
 }
 
@@ -73,13 +74,15 @@ function Calculate(FormName)
 		const impl = row.children[1].value;
 		const min = row.children[2].value;
 		const max = row.children[3].value;
+		const weight = row.children[4].value;
 		if (checked)
 		{
 			const number = getRandomInt(parseInt(min),parseInt(max));
+			for(var i = 0; i < weight; i++)
 			probabilities.push({impl, number })
 		}
 	})
 		
 	const index = getRandomInt(0, probabilities.length-1);
-alert(`${probabilities[index].number} with ${probabilities[index].impl} `);
+    alert(`${probabilities[index].number} with ${probabilities[index].impl} `);
 }
