@@ -1,23 +1,61 @@
-function Populate(FormName)
+function createRow(formName, element)
+{
+	var row = document.createElement("FIELDSET");
+	row.quiet = element.quiet;
+	row.setAttribute("name","row");
+		
+	const checked = document.createElement("INPUT");
+	checked.setAttribute("type","checkbox");
+	checked.setAttribute("name","myCheckbox");
+	checked.checked = element.checked;
+	row.appendChild(checked);
+	
+	const impl = document.createElement("INPUT");
+	impl.setAttribute("type","text");
+	impl.setAttribute("name","impl");
+	impl.setAttribute("id","impl");
+	impl.setAttribute("disabled","true");
+	impl.setAttribute("value",element.impl);
+	row.appendChild(impl);
+	
+	const min = document.createElement("INPUT");
+	min.setAttribute("type","text");
+	min.setAttribute("name","min");
+	min.setAttribute("id","amt");
+	min.setAttribute("value",element.min);
+	row.appendChild(min);
+	
+	const max = document.createElement("INPUT");
+	max.setAttribute("type","text");
+	max.setAttribute("name","max");
+	max.setAttribute("id","amt");
+	max.setAttribute("value",element.max);
+	row.appendChild(max);
+	
+	const weight = document.createElement("INPUT");
+	weight.setAttribute("type","text");
+	weight.setAttribute("name","weight");
+	weight.setAttribute("id","weight");
+	weight.setAttribute("value",element.weight);
+	row.appendChild(weight);
+	
+	const form = document.forms[formName];
+    form.appendChild(row);
+}
+function Populate(formName)
 {
     const array = [
 		{checked: true, impl:'big paddle', min: 5, max: 40, weight: 1, quiet: false},
 		{checked: true, impl:'cane', min: 5, max: 10, weight: 1, quiet: true },
 		{checked: true, impl:'narrow paddle', min: 15, weight: 1, max: 40, quiet: false},
 		{checked: true, impl:'strap', min: 20, max: 50, weight: 1, quiet: false},
-		{checked: false, impl:'hand', min: 15, max: 35, weight: 1, quiet: true},
+		{checked: true, impl:'small strap', min: 20, max: 50, weight: 1, quiet: false},
+		{checked: true, impl:'crop', min: 20, max: 50, weight: 1, quiet: false},
+		{checked: true, impl:'redneck spoon', min: 20, max: 50, weight: 1, quiet: true},
+		{checked: true, impl:'hand', min: 15, max: 35, weight: 1, quiet: true},
 	]
-	
-	var fieldSets = document.forms[FormName].elements["row"];
-	fieldSets.forEach((row, index) => 
-	{
-		row.quiet = array[index].quiet;
-		row.children[0].checked = array[index].checked;
-		row.children[1].value= array[index].impl;
-		row.children[2].value= array[index].min;
-		row.children[3].value= array[index].max;
-		row.children[4].value= array[index].weight;
-	});
+	array.forEach(element => createRow(formName, element));
+
 }
 
 function SetAllCheckBoxes(FormName, FieldName, CheckValue)
