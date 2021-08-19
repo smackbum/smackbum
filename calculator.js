@@ -36,7 +36,7 @@ function SetAllCheckBoxes(FormName, FieldName, CheckValue)
 			objCheckBoxes[i].checked = CheckValue;
 }
 
-function SetAllQuietCheckBoxes(FormName, CheckValue)
+function SetAllQuietCheckBoxes(FormName,Attribute, CheckValue)
 {
 	if(!document.forms[FormName])
 		return;
@@ -49,7 +49,7 @@ function SetAllQuietCheckBoxes(FormName, CheckValue)
 	else
 	{
 		objCheckBoxes.forEach((obj, index) => {
-		obj.children[0].checked = CheckValue === obj.quiet;
+		obj.children[0].checked = CheckValue === obj[Attribute];
 		})
 	}
 }
