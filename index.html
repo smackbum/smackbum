@@ -3,7 +3,7 @@
   <head>
     <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
-  <body>
+  <body onload="Populate('myForm');">
 
     <div id="container">
       <h1>Get lucky</h1>
@@ -11,21 +11,21 @@
 	  <form method="GET" action="page17.php" name="myForm" onsubmit="return false;">
 	    <fieldset name="row">
 			<input type="checkbox" name="myCheckbox" value="1" id="myCheckbox1">
-			<input id="impl" type="text" name="impl"  value="foo bar" disabled='true' /> 
+			<input id="impl" type="text" name="impl" disabled='true' /> 
 			<input id="amt" type="text" name="min"  placeholder="min" /> 
 			<input id="amt" type="text" name="max" placeholder="max" />
 		</fieldset>
 		<br>
 		<fieldset name="row">
 		    <input type="checkbox" name="myCheckbox" value="2" id="myCheckbox2">
-			<input id="impl" type="text" name="impl"  value="foo2 bar2" disabled='true' /> 
+			<input id="impl" type="text" name="impl"  disabled='true' /> 
 			<input id="amt" name="min" type="text" placeholder="min" /> 
 			<input id="amt" name="max" type="text" placeholder="max" />
 		</fieldset>
 		<br>
 		<fieldset name="row">
 			<input type="checkbox" name="myCheckbox" value="3" id="myCheckbox3">
-			<input id="impl" type="text" name="impl"  value="fo1o bar1" disabled='true' /> 
+			<input id="impl" type="text" name="impl" disabled='true' /> 
 			<input id="amt" type="text" name="min" placeholder="min" /> 
 			<input id="amt" type="text" name="max" placeholder="max" />
 		</fieldset >
@@ -33,13 +33,8 @@
 		<input type="button" onclick="SetAllCheckBoxes('myForm', 'myCheckbox', false);" value="None  ">
 
 	</form>
-        <button type="button" id="calculate" onclick="Calculate('myForm');">Calculate!</button>
+        <button type="button" id="calculate" onclick="Calculate('myForm');">Spin</button>
       </div>
-      <!--calculator end-->
-      <div id="totalAndTip">
-
-      </div>
-      <!--totalTip end-->
     </div>
     <!--container end-->
   </body>
