@@ -2,6 +2,8 @@ function Populate(FormName)
 {
     const array = [
 		{checked: true, impl:'big paddle', min: 5, max: 40},
+		{checked: true, impl:'cane', min: 5, max: 10},
+		{checked: true, impl:'narrow paddle', min: 15, max: 40},
 		{checked: true, impl:'strap', min: 20, max: 50},
 		{checked: false, impl:'hand', min: 15, max: 35},
 	]
